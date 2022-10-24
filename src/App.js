@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import Counter from './components/counter'
 
 function App() {
   return (
@@ -15,10 +16,13 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Hello World
         </a>
+        { /* component counter dengan properti start*/}
+        <Counter start="899"/> 
       </header>
     </div>
+    
   );
 }
 

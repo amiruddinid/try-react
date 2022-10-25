@@ -18,6 +18,4 @@ function Counter(props){
   )
 }
 
-{/* <></>  adalah fragment*/ }
-
 export default Counter;

@@ -1,0 +1,34 @@
+Router
+1. buka folder react install react-router-dom `npm install react-router-dom`
+2. ubah src/index.js untuk config router 
+   (ditambahkan import line 3-7)
+   (component app diubah menjadi router (line 14-19)
+3. mencoba route / halaman about sederhana (`npm start`)
+   di browser sekarang bisa membuat halaman index (/) & about    (/about)
+4. memindah <h1>About</h1> menjadi sebuah component / pages
+5. membuat 2 pages baru
+
+
+Ekstensi VSCode untuk mempermudah coding react
+
+1. buka tab extensi di vscode (ctrl+shift+x)
+2. cari ES7+ React/Redux/React-native snippets & install
+3. bisa buat file baru kemudian ketikkan rfc nanti ada dropdown
+   pilih rfc
+4. secara otomatis file react akan tersedia
+
+Handling Api 
+1. buka terminal untuk running API yg sudah dibuat
+2. buat state untuk menyimpan data
+3. membuat fungsi untuk fetch data
+4. menyiapkan component dan map untuk menampilkan data
+~
+5. mencoba ambil data ketika halaman di buka
+6. mengunakan useEffect kita bisa menjalankan fungsi ketika
+  halaman dibuka
+
+note: di react ada 2 cara untuk menjalankan sebuah fungsi
+   1. trigger (pas event button di click, submit, change dll)
+      menyiapkan button dan fungsi untuk ambil data
+   2. pas component itu sedang dirender
+      useEffect() dari react

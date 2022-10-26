@@ -1,0 +1,14 @@
+React Fundamental State & Props
+1. Untuk mengakses data secara global, state harus ada di root component / parent component
+2. Data dari state harus dikirimkan melalui props / atribute component
+
+Merubah sistem routing
+1. Routing di pindah dari index ke App (index sebaiknya hanya untuk configurasi aplikasi)
+2. Menambahkan Link untuk akses routing
+
+Bootstrap & Reactstrap
+1. install bootstrap & reactstrap `npm i bootstrap reactsctrap`
+2. import css bootstrap `import 'bootstrap/dist/css/bootstrap.min.css';`
+3. bisa menggunakan css2 dari bootstrap
+4. untuk fungsi2 javascript harus menggunakan reactstrap 
+   bisa melihat di dokumentasi reactstrap : https://reactstrap.github.io/

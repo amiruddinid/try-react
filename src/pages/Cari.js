@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import Card from '../components/card';
 
 export default function Cari() {
   const [motor, setMotor] = useState()
@@ -11,7 +12,7 @@ export default function Cari() {
 
   //ambil data otomatis ketika page / halaman di buka
   useEffect(() => {
-      getMotors();
+    getMotors();
   }, [])
 
   return (
@@ -19,13 +20,12 @@ export default function Cari() {
         {/* ambil data ketika user click button */}
         <button onClick={getMotors}>Ambil data!</button>
         {
-            motor ? motor.map(item => (
-                <div>
-                    <div>Plat No : {item.plate}</div>
-                    <div>Model : {item.manufacture} - {item.model}</div>
-                    <div>Rent/day : {item.rentPerDay}</div>
-                </div>
-            )) : <h1>Tidak ada data</h1>
+            motor ? 
+              <ul>
+              { motor.map(item => (
+                <Card a={item} />
+              ))} 
+              </ul> : <h1>Tidak ada data</h1>
         }
     </div>
   )

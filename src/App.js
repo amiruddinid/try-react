@@ -1,28 +1,35 @@
-import logo from './logo.svg';
+import {
+  Routes, Route, Link
+} from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+import Cari from './pages/Cari';
+import Faq from './pages/Faq';
+import 'bootstrap/dist/css/bootstrap.min.css'; //bootstrap
 import './App.css';
-import Counter from './components/counter'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Hello World
-        </a>
+      <header>
+        <nav>
+          <Link to="/">Home</Link> |{" "}
+          <Link to="/about">About</Link> |{" "}
+          <Link to="/cari-motor">Cari</Link> |{" "}
+          <Link to="/faq">FAQ</Link>
+        </nav>
+        {/* <Counter start="899"/>  */}
         { /* component counter dengan properti start*/}
-        <Counter start="899"/> 
       </header>
+      <main>
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/about" element={<About/>} />
+          <Route path="/cari-motor" element={<Cari/>} />
+          <Route path="/faq" element={<Faq/>} />
+        </Routes>
+      </main>
     </div>
-    
   );
 }
 

@@ -1,0 +1,17 @@
+install react dengan template redux
+1. npx create-react-app nama_project --template redux
+2. buka folder di terminal dan npm start untuk running project
+
+
+install redux manual
+1. buka folder react, buka terminal dan install redux & redux toolkit  
+   `https://react-redux.js.org/tutorials/quick-start`
+   `npm install @reduxjs/toolkit react-redux`
+2. Buat folder app di src dan buat file store.js di dalam src
+3. edit index.js untuk mengunakan store
+4. di pages buat folder Cari, pindahkan file Cari.js ke folder Cari
+   & tambahkan dua file baru CariSlice.js, CariAPI.js
+   - CariSlice untuk logic
+   - CariAPI untuk pemanggilan API
+   - Cari.js untuk view
+5. Untuk mengeksekusi fungsi di slice harus mengunakan dispatch (const dispatch = useDispatch())

@@ -3,7 +3,7 @@ import {
 } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
-import Cari from './pages/Cari';
+import Cari from './pages/Cari/Cari';
 import Faq from './pages/Faq';
 import 'bootstrap/dist/css/bootstrap.min.css'; //bootstrap
 import './App.css';

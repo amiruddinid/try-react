@@ -12,15 +12,22 @@ export const getMotor = createAsyncThunk(
 export const motorSlice = createSlice({
     name:'motor',
     initialState: {
-        data: null,
-        initData: null,
+        data: [],
+        initData: [],
         status: 'idle',
     },
     reducers:{
         filterMotor: (state, action) => {
-            console.log(action);
+            const filters = action.payload
             state.data = state.initData.filter(el => {
-                return el[action.payload.type].toString() === action.payload.value
+                return Object.keys(filters).every(filter => {
+                    if(filter === 'availableAt') {
+                        const d1 = new Date(filters[filter]);
+                        const d2 = new Date(el[filter]);
+                        return d1.getTime() >= d2.getTime() 
+                    }
+                    return filters[filter] === el[filter]
+                });
             })
         },
         sortMotor: (state, action) => {
@@ -43,4 +50,5 @@ export const motorSlice = createSlice({
 
 export const { filterMotor, sortMotor } = motorSlice.actions;
 export const selectMotor = (state) => state.motor.data;
+export const selectInitMotor = (state) => state.motor.initData;
 export default motorSlice.reducer;

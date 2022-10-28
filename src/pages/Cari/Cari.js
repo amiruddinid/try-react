@@ -4,43 +4,58 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   getMotor,
   selectMotor,
+  selectInitMotor,
   filterMotor,
 } from './CariSlice';
 
 export default function Cari() {
+  const [filter, setFilter] = useState({})
   const motor = useSelector(selectMotor);
+  const initMotor = useSelector(selectInitMotor);
+  const type = [...new Set(initMotor.map(e => e.type))]
+  const transmisi = [...new Set(initMotor.map(e => e.transmission))]
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getMotor());
   }, [dispatch])
 
-  const handleFilter = (type, e) => {
+  const handleInputFilter = (type, e) => {
     const val = e.target.value;
-    dispatch(filterMotor({
-      type: type,
-      value: val
-    }));
+    setFilter({...filter, [type] : val})
   }
+
+  const handleFilter = () => {
+    console.log(filter)
+    dispatch(filterMotor(filter));
+  }
+
   return (
-    <div>
+    <div className='mt-5'>
         {/* ambil data ketika user click button */}
         <button onClick={() => dispatch(getMotor())}>Ambil data!</button>
-        <select onChange={(e) => handleFilter('available', e)}>
-          <option selected disabled hidden>Availability</option>
-          <option value="true">Available</option>
-          <option value="false">Not Available</option>
+        <select onChange={(e) => handleInputFilter('type', e)}>
+          <option selected disabled hidden>Type</option>
+          {
+            type.map(el => <option value={el}>{el}</option>)
+          }
         </select>
-        <select onChange={(e) => handleFilter('transmission', e)}>
+        <select onChange={(e) => handleInputFilter('transmission', e)}>
           <option selected disabled hidden>Transmision</option>
-          <option value="Automatic">Automatic</option>
-          <option value="Manual">Manual</option>
+          {
+            transmisi.map(el => <option value={el}>{el}</option>)
+          }
         </select>
+        <input type="date" onChange={(e) => handleInputFilter('availableAt', e)}/>
+        <button onClick={handleFilter}>Filter</button>
         {
             motor ? 
               <ul>
               { motor.map(item => (
-                <Card a={item} />
+                <div>
+                  <h1>{item.model + item.manufacture}</h1>
+                  <img src={"https://raw.githubusercontent.com/fnurhidayat/probable-garbanzo/main/public/" + item.image.substring(1)}/>
+                </div>
               ))} 
               </ul> : <h1>Tidak ada data</h1>
         }
